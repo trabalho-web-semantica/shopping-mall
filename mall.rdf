@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.owl-ontologies.com/travel.owl#"
+     xml:base="http://www.owl-ontologies.com/travel.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:mall="http://www.owl-ontologies.com/mall.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/mall.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#customer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/mall.owl#customer">
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/mall.owl#purchases"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Purchase"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/mall.owl#Customer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#hasProduct -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/mall.owl#hasProduct">
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/mall.owl#isOfferedAt"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#isOfferedAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/mall.owl#isOfferedAt">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#product -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/mall.owl#product">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Purchase"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#purchases -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/mall.owl#purchases">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Customer"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/mall.owl#Purchase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#date">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Purchase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Customer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#price -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#price">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#productName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#productName">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#quantity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#quantity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#storeName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/mall.owl#storeName">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Customer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Customer"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Eletronics -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Eletronics">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Consists of exactly three individuals.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#EletronicsStore -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#EletronicsStore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#hasProduct"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/mall.owl#Eletronics"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Food -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Food">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#FoodStore -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#FoodStore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#hasProduct"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/mall.owl#Food"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#NationalPark -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#NationalPark">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Product -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Product"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Purchase -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Purchase">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#customer"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#product"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#date"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Shoe -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Shoe">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Product"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#ShoesStore -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#ShoesStore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/mall.owl#hasProduct"/>
+                <owl:someValuesFrom rdf:resource="http://www.owl-ontologies.com/mall.owl#Shoe"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Store -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Store"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Town -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/mall.owl#Town">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Cellphone -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#Cellphone">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Eletronics"/>
+        <mall:price rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</mall:price>
+        <mall:quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</mall:quantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Chicken -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#Chicken">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Food"/>
+        <mall:price rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</mall:price>
+        <mall:productName>chicken</mall:productName>
+        <mall:quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</mall:quantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#FastShop -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#FastShop">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#EletronicsStore"/>
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+        <mall:hasProduct rdf:resource="http://www.owl-ontologies.com/mall.owl#Cellphone"/>
+        <mall:storeName>FastShop</mall:storeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Hamburger -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#Hamburger">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Food"/>
+        <mall:price rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mall:price>
+        <mall:productName>hamburger</mall:productName>
+        <mall:quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mall:quantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#KFC -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#KFC">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#FoodStore"/>
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+        <mall:hasProduct rdf:resource="http://www.owl-ontologies.com/mall.owl#Chicken"/>
+        <mall:storeName>KFC</mall:storeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#McDonalds -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#McDonalds">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#FoodStore"/>
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Store"/>
+        <mall:hasProduct rdf:resource="http://www.owl-ontologies.com/mall.owl#Hamburger"/>
+        <mall:storeName>McDonalds</mall:storeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#Shoes -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#Shoes">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Shoe"/>
+        <mall:price rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</mall:price>
+        <mall:quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</mall:quantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#TV -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#TV">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#Eletronics"/>
+        <mall:price rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</mall:price>
+        <mall:quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</mall:quantity>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.owl-ontologies.com/mall.owl#WorldTennis -->
+
+    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/mall.owl#WorldTennis">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/mall.owl#ShoesStore"/>
+        <mall:hasProduct rdf:resource="http://www.owl-ontologies.com/mall.owl#Shoes"/>
+        <mall:storeName>WorldTennis</mall:storeName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.owl-ontologies.com/mall.owl#Cellphone"/>
+            <rdf:Description rdf:about="http://www.owl-ontologies.com/mall.owl#TV"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
